@@ -1,0 +1,95 @@
+<div class="workspace-container">
+    <!-- Content to display when current is true -->
+    <div class="header-container">
+      <h3 class="header-text">Manage Campaigns</h3>
+      <select name="" id="">
+        <option value="">Lathesh</option>
+        <option value="">Vikash</option>
+        <option value="">Sathwik</option>
+      </select>
+    </div>
+    <div class="title mt-3">
+      <p>Manage Campaigns</p>
+    </div>
+    <div class="display-list p-4">
+      <div class="display-header">
+        <button class="btn btn-primary mb-3" routerLink="/create/home" (click)="clearForm()">
+          Create Campaign
+        </button>
+        <div class="sortConatiner">
+          <label for="">Sort by&nbsp;</label>
+          <select [(ngModel)]="sortString" class="mb-3">
+            <option value="name">Name</option>
+            <option value="status">Status</option>
+            <option value="CTR">CTR</option>
+          </select>
+          <button (click)="sortOnDirection()">
+            <img
+              src="../../assets/icons/sortUp.svg"
+              alt="sortUp"
+              *ngIf="sortOrder == 'asc'"
+            />
+            <img
+              src="../../assets/icons/sortDown.svg"
+              alt="sortDown"
+              *ngIf="sortOrder == 'desc'"
+            />
+          </button>
+        </div>
+      </div>
+      <div class="display-container">
+        <table class="table table-hover mb-3">
+          <thead>
+            <tr class="table">
+              <th>Program ID</th>
+              <th>Campaign Name</th>
+              <th>Status</th>
+              <th>CTR</th>
+              <th>Start Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let campaign of campaignList | sortList : sortString : sortOrder
+              "
+            >
+              <td>{{ campaign.id }}</td>
+              <td [routerLink]="['/campaign/userDetails', campaign.id]" class="userName">
+                <a >{{ campaign.request}}, {{ campaign.name}}</a>
+                
+                
+              </td>
+  
+              <td>
+                <div
+                  class="status"
+                  [style.backgroundColor]="
+                    campaign.status === 'completed'
+                      ? '#ccffcc'
+                      : campaign.status === 'draft'
+                      ? '#e6e6e6'
+                      : '#ccccff'
+                  "
+                >
+                  {{ campaign.status | titlecase}}
+                </div>
+              </td>
+              <td>{{ campaign.CTR }}</td>
+              <td>{{ campaign.start_date | date : "dd MMMM, h:mm a(YYYY)" }}</td>
+  
+              <td>
+                <select name="" id="" class="form-select">
+                  <option value="Action" hidden selected disabled>Action</option>
+                  <option value="Edit">Edit</option>
+                  <option value="delete">Delete</option>
+                </select>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,152 @@
+<div class="audience-container p-3">
+    <h5 class="mb-3">Audience Details &#x2139;</h5>
+    <div class="browse">
+      
+      <input type="search" class="form-control" placeholder="Search..." />
+      <!-- <input type="text" placeholder="Browse &#x25BC;" class="form-control dropdown" (click)="showDetails()"> -->
+      <button #myButton class="btn btn-info" (click)="showDetails(myButton)">Browse &#x25BC;</button>
+    </div>
+    <div *ngIf="content" class="content">
+      <div class="industry">
+        <div class="heading">
+          <h3>Industry</h3>
+        </div>
+        <div class="industry-branch">
+          <div class="branches">
+            <div class="branch">
+              <h5>Demographic</h5>
+              <p>10 Category</p>
+            </div>
+            <div class="expand">
+             <h3>&gt;</h3>
+            </div>
+            <div class="category">
+              <div class="heading">
+                <h3>Category</h3>
+              </div>
+              <div class="branches">
+                <div class="branch">
+                  <h5>Age</h5>
+                  <p>10 Category</p>
+                </div>
+                <div class="expand">
+                  <h3>&gt;</h3>
+                </div>
+                <div class="application">
+                  <div class="heading">
+                    <h3>Application</h3>
+                  </div>
+                  <div class="branches">
+                    <div class="option">
+                      <input type="checkbox" name="" id="">&gt;12-20
+                      
+                    </div>
+                    
+                    <p>3.2M</p>
+                  </div>
+                  <div class="branches">
+                    <div class="option">
+                      <input type="checkbox" name="" id="">&gt;21-35
+                     
+                    </div>
+                    <p>3.2M</p>
+                  </div>
+                  <div class="branches">
+                    <div class="option">
+                      <input type="checkbox" name="" id="">&gt;35-50
+                      
+                    </div>
+                    <p>3.2M</p>
+                  </div>
+                  <div class="branches">
+                    <div class="option">
+                      <input type="checkbox" name="" id="">&gt;50-65
+                      
+                    </div>
+                    <p>3.2M</p>
+                  </div>
+                  <div class="branches">
+                    <div class="option">
+                      <input type="checkbox" name="" id="">&gt;65-80
+                      
+                    </div>
+                    <p>3.2M</p>
+                  </div>
+                  <div class="branches">
+                    <div class="option">
+                      <input type="checkbox" name="" id="">&gt;80-100
+                      
+                    </div>
+                    <p>3.2M</p>
+                  </div>
+                </div>
+              </div>
+              <div class="branches">
+                <div class="branch">
+                  <h5>Gender</h5>
+                  <p>10 Category</p>
+                </div>
+                
+                <div class="expand">
+                  <h3>&gt;</h3>
+                </div>
+              </div>
+              <div class="branches">
+                <div class="branch">
+                  <h5>360 Labels</h5>
+                  <p>10 Category</p>
+                </div>
+                
+                <div class="expand">
+                  <h3>&gt;</h3>
+                </div>
+              </div>
+              <div class="branches">
+                <div class="branch">
+                  <h5>HandSet</h5>
+                  <p>10 Category</p>
+                </div>
+                
+                <div class="expand">
+                  <h3>&gt;</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="branches ">
+            <div class="branch">
+              <h5>Geographic</h5>
+              <p>10 Category</p>
+            </div>
+            
+            <div class="expand">
+              <h3>&gt;</h3>
+            </div>
+          </div>
+          <div class="branches">
+            <div class="branch">
+              <h5>Commercial Relevance</h5>
+              <p>10 Category</p>
+            </div>
+            
+            <div class="expand">
+              <h3>&gt;</h3>
+            </div>
+          </div>
+        </div>
+          
+        
+        
+      </div>
+      
+     
+      
+    </div>
+    <div class="footer mt-3">
+      <button class="btn btn-secondary" (click)="goBack()" [routerLink]="['/create/home/location']">Back</button>
+      <button class="btn btn-primary" (click)="goNext()" [routerLink]="['/create/home/summary']">Next</button>
+      
+    </div>
+    
+  </div>
+  

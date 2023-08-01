@@ -1,0 +1,26 @@
+<div class="summary-container">
+    <h5>Summary</h5>
+    <div class="display-details">
+        <div class="fields">
+            <p>Objective</p>
+            <p>Category</p>
+            <p>Offer Type</p>
+            <p>Comment</p>
+            <p>Status</p>
+            <p>Location</p>
+        </div>
+        <div class="values">
+            <p>{{formData.objective || "Empty"}}</p>
+            <p>{{formData.category || "Empty"}}</p>
+            <p>{{formData.offer_type || "Empty" }}</p>
+            <p>{{formData.comment || "Empty"}}</p>
+            <p class="status" [style.backgroundColor]="formData.status === 'completed' ? '#ccffcc' : formData.status === 'draft' ? '#e6e6e6' : '#ccccff'">{{formData.status}}</p>
+            <p>{{formData.location || "Empty"}}</p>
+        </div>
+    </div>
+    <div class="footer">
+        <button class="btn btn-secondary mx-3" [routerLink]="['/create/home/audience']" (click)="goBack()">Back</button>
+        <button class="btn btn-primary" routerLink="/campaign/list-campaign" (click)="addCampaign()">Submit</button>
+    </div>
+    
+</div>

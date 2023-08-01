@@ -1,0 +1,91 @@
+:host {
+    width: 100%;
+  }
+  .campaign-container {
+    padding: 2.2rem 1.5rem;
+    min-height: 100vh;
+    max-height: fit-content;
+    background-color: #e2dfdf;
+    .header {
+      display: flex;
+      gap: 1.5rem;
+      // border: 1px solid red;
+      h3 {
+        font-size: min(6vw, 1.5rem);
+        color: rgb(62, 60, 60);
+        text-align: center;
+      }
+      input {
+        padding: 0.3rem;
+        width: 20rem;
+      }
+    }
+    .progress-bar {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: center;
+      .bullet {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1px solid black;
+        & p:nth-child(1)::after {
+          position: absolute;
+          content: "Campaign details";
+          left: 1.9rem;
+          top: 0.04rem;
+          color: black;
+          background-color: #e2dfdf;
+          z-index: 999;
+        }
+        &:nth-child(3) p::after {
+          position: absolute;
+          content: "Location details";
+          left: 1.9rem;
+          color: black;
+          background-color: #e2dfdf;
+          z-index: 999;
+        }
+        &:nth-child(5) p::after {
+          position: absolute;
+          content: "Audience details";
+          left: 1.9rem;
+          color: black;
+          background-color: #e2dfdf;
+          z-index: 999;
+        }
+        &:last-child p::after {
+          content: "Summary";
+          position: absolute;
+        }
+        &.active {
+          background-color: blue;
+          color: black !important;
+        }
+        &.done {
+          background-image: url(../../../../assets/icons/check.svg);
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          color: green !important;
+          background-color: green;
+          p {
+            display: none;
+          }
+        }
+      }
+      .line {
+        position: relative;
+        width: 10rem;
+        height: 4px;
+        background-color: grey;
+        &.active {
+          background-color: green;
+          color: green;
+        }
+      }
+    }
+  }
+  

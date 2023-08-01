@@ -1,0 +1,76 @@
+<div class="campaign-details">
+  
+    <h5 class="mb-3">Campaign details</h5>
+    <form class="form" [formGroup]="formDetails">
+      <div class="form-input">
+        <label for="" class="form-label required">Campaign Name</label>
+        <input
+          type="text"
+          placeholder="Campaign Name"
+          class="form-control"
+          formControlName="name"
+          
+          [class.is-invalid]="form['name']
+          .touched && form['name'].invalid"
+        />
+      </div>
+      <div class="alert" *ngIf="form['name']
+        .touched && form['name'].invalid">
+          This field cannot be empty
+        </div>
+        
+      <div class="form-input">
+        <label for="" class="form-label required">Campaign Objective</label>
+        <input
+          type="text"
+          placeholder="Campaign Objective"
+          class="form-control"
+          formControlName="objective"
+          [class.is-invalid]="form['objective']
+          .touched && form['objective'].invalid"
+        />
+      </div>
+      <div class="alert" *ngIf="form['objective']
+        .touched && form['objective'].invalid">
+          This field cannot be empty
+        </div>
+  
+      <div class="optional">
+        <div class="form-group" >
+          <label for="" class="form-label" >Campaign Category(optional)</label>
+          <select class="form-select" formControlName="category">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="" class="form-label">Offer Type(optional)</label>
+          <select name="" id="" class="form-select" formControlName="offer_type">
+            <option value="option1" selected>Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-input">
+        <label for="" class="form-label">Additional Components(optionals)</label>
+        <textarea
+          name=""
+          id=""
+          cols="5"
+          rows="5"
+          placeholder="Additional Comments"
+          class="form-control"
+          formControlName="comment"
+        ></textarea>
+      </div>
+    </form>
+    
+    <div class="text-end">
+      <button [routerLink]="['/create/home/location']" class="btn btn-primary mt-3" type="submit" [disabled]="!formDetails.valid" (click)="sendActivation()">Next</button>
+    </div>
+    
+  </div>
+  
