@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import {SHARED} from './shared/index'
+import {SHARED} from './shared/index';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {SHARED} from './shared/index'
     AppRoutingModule,
     FormsModule,
     CommonModule,
-    SHARED
+    SHARED,
+    BrowserAnimationsModule
 
   ],
   providers: [],

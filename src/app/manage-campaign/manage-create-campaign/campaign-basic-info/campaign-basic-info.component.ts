@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule} from '@angular/router';
-import { ReactiveFormsModule,FormGroup,FormBuilder,Validators } from '@angular/forms';
+import { ReactiveFormsModule,FormGroup,FormBuilder,Validators, AbstractControl, FormGroupDirective, NgForm } from '@angular/forms';
 import {ApiService} from '../../../shared/service/api.service';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-campaign-basic-info',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule,RouterModule],
+  imports: [CommonModule,ReactiveFormsModule,RouterModule,MatInputModule,MatFormFieldModule,MatSelectModule,MatButtonModule,MatIconModule],
   templateUrl: './campaign-basic-info.component.html',
   styleUrls: ['./campaign-basic-info.component.scss']
 })
@@ -50,5 +55,7 @@ ngOnInit(): void {
     this.api.progressDone.subscribe(res=>{
         res.camping=true;  
     }) 
-  }    
+  }   
+  
+  
 }

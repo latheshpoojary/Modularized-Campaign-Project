@@ -2,74 +2,51 @@
   
     <h5 class="mb-3">Campaign details</h5>
     <form class="form" [formGroup]="formDetails">
-      <div class="form-input">
-        <label for="" class="form-label required">Campaign Name</label>
-        <input
-          type="text"
-          placeholder="Campaign Name"
-          class="form-control"
-          formControlName="name"
-          
-          [class.is-invalid]="form['name']
-          .touched && form['name'].invalid"
-        />
-      </div>
-      <div class="alert" *ngIf="form['name']
-        .touched && form['name'].invalid">
-          This field cannot be empty
-        </div>
-        
-      <div class="form-input">
-        <label for="" class="form-label required">Campaign Objective</label>
-        <input
-          type="text"
-          placeholder="Campaign Objective"
-          class="form-control"
-          formControlName="objective"
-          [class.is-invalid]="form['objective']
-          .touched && form['objective'].invalid"
-        />
-      </div>
-      <div class="alert" *ngIf="form['objective']
-        .touched && form['objective'].invalid">
-          This field cannot be empty
-        </div>
-  
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Campaign Name</mat-label>
+        <input type="text" matInput formControlName="name"
+               placeholder="Name">
+        <mat-error *ngIf="form['name'].hasError('required')">
+          Name is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Campaign Objective</mat-label>
+        <input type="text" matInput formControlName="objective"
+               placeholder="Ex:Need Economical Help">
+        <mat-error *ngIf="form['objective'].hasError('required')">
+          Objective is required
+        </mat-error>
+      </mat-form-field>
       <div class="optional">
-        <div class="form-group" >
-          <label for="" class="form-label" >Campaign Category(optional)</label>
-          <select class="form-select" formControlName="category">
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label for="" class="form-label">Offer Type(optional)</label>
-          <select name="" id="" class="form-select" formControlName="offer_type">
-            <option value="option1" selected>Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-          </select>
-        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>Campaign Category</mat-label>
+          <mat-select disableRipple formControlName="category">
+            <mat-option value="Category 1">Category 1</mat-option>
+            <mat-option value="Category 2">Category 2</mat-option>
+            <mat-option value="Category 3">Category 3</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Offer Type</mat-label>
+          <mat-select disableRipple formControlName="offer_type">
+            <mat-option value="Offer 1">Offer 1</mat-option>
+            <mat-option value="Offer 2">Offer 2</mat-option>
+            <mat-option value="Offer 3">Offer 3</mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
-      <div class="form-input">
-        <label for="" class="form-label">Additional Components(optionals)</label>
-        <textarea
-          name=""
-          id=""
-          cols="5"
-          rows="5"
-          placeholder="Additional Comments"
-          class="form-control"
-          formControlName="comment"
-        ></textarea>
-      </div>
+      <mat-form-field appearance="outline">
+        <mat-label>Additional Comments</mat-label>
+        <textarea matInput formControlName="comment"></textarea>
+      </mat-form-field>
     </form>
     
     <div class="text-end">
-      <button [routerLink]="['/create/home/location']" class="btn btn-primary mt-3" type="submit" [disabled]="!formDetails.valid" (click)="sendActivation()">Next</button>
+      <!-- <button [routerLink]="['/create/home/location']" class="btn btn-primary mt-3" type="submit" [disabled]="!formDetails.valid" (click)="sendActivation()">Next</button> -->
+      <button mat-fab extended class="button" color="primary" [routerLink]="['/create/home/location']" type="submit" [disabled]="!formDetails.valid" (click)="sendActivation()">
+        Next
+      </button>
     </div>
     
   </div>
