@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule} from '@angular/router';
-import { ReactiveFormsModule,FormGroup,FormBuilder,Validators, AbstractControl, FormGroupDirective, NgForm } from '@angular/forms';
+import { ReactiveFormsModule,FormGroup,FormBuilder,Validators } from '@angular/forms';
 import {ApiService} from '../../../shared/service/api.service';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';

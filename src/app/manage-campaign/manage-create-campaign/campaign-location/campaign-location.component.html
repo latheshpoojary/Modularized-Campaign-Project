@@ -10,7 +10,7 @@
             #search
             (change)="addLocation()" > -->
             <mat-form-field class="example-full-width search" appearance="outline">
-                <mat-label>Search Location</mat-label>
+              <mat-label>Search Location</mat-label>
                 <input 
                 type="search" 
                 matInput 
@@ -70,12 +70,15 @@
     </div>
     <div class="footer">
         <div class="left">
-            <button class="btn btn-secondary" [routerLink]="['/create/home/basic']" (click)="backToCampaign()">Back</button>
+            <button  
+            mat-fab extended class="button" color="basic" 
+            [routerLink]="['/create/home/basic']" (click)="backToCampaign()">Back</button>
             
         </div>
         <div class="right text-end">
-            <button class="btn btn-outline-primary">Apply</button>
-            <button class="btn btn-primary" [routerLink]="['/create/home/audience']" (click)="goNext()">Next</button>
+            <button
+            mat-fab extended class="button" color="primary" 
+            [routerLink]="['/create/home/audience']" (click)="goNext()">Next</button>
         </div>
         
     </div>

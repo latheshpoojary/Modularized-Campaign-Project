@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import {RouterModule} from '@angular/router';
 import { ReactiveFormsModule,FormGroup,FormBuilder,Validators, FormsModule } from '@angular/forms';
 import {ApiService} from '../../../shared/service/api.service';
-import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {NgIf} from '@angular/common';
 import {MatInputModule} from '@angular/material/input';
@@ -12,7 +11,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 @Component({
   selector: 'app-campaign-location',
   standalone: true,
-  imports: [CommonModule,RouterModule,ReactiveFormsModule,MatFormFieldModule, MatInputModule, FormsModule, NgIf, MatButtonModule, MatIconModule],
+  imports: [CommonModule,RouterModule,ReactiveFormsModule,MatFormFieldModule, MatInputModule, FormsModule, NgIf, MatButtonModule, ],
   templateUrl: './campaign-location.component.html',
   styleUrls: ['./campaign-location.component.scss']
 })

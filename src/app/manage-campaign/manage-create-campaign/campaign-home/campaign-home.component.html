@@ -15,6 +15,34 @@
         <div class="bullet"  [class.done]="doneProgress.audience"><p>4</p></div>
         
     </div>
+    <!-- <mat-stepper #stepper>
+        <mat-step [stepControl]="" errorMessage="Name is required.">
+           
+            <div>
+              <p>Go to a different step to see the error state</p>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          
+        </mat-step>
+        <mat-step [stepControl]="" errorMessage="Address is required.">
+           
+            <div>
+              <p>Go to a different step to see the error state</p>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+         
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+      </mat-stepper> -->
+      
     
     <div class="campaign-details">
         <router-outlet></router-outlet>

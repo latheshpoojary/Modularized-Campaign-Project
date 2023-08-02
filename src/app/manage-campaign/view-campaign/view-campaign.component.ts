@@ -2,11 +2,12 @@ import { Component ,OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ApiService} from '../../shared/service/api.service';
 import {ActivatedRoute,RouterModule} from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-view-campaign',
   standalone: true,
-  imports: [CommonModule,RouterModule],
+  imports: [CommonModule,RouterModule,MatButtonModule],
   templateUrl: './view-campaign.component.html',
   styleUrls: ['./view-campaign.component.scss']
 })

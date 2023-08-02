@@ -19,8 +19,10 @@
         </div>
     </div>
     <div class="footer">
-        <button class="btn btn-secondary mx-3" [routerLink]="['/create/home/audience']" (click)="goBack()">Back</button>
-        <button class="btn btn-primary" routerLink="/campaign/list-campaign" (click)="addCampaign()">Submit</button>
+        <button mat-fab extended class="button mx-3" color="basic" 
+        [routerLink]="['/create/home/audience']" (click)="goBack()">Back</button>
+        <button mat-fab extended class="button" color="primary" 
+         routerLink="/campaign/list-campaign" (click)="addCampaign()">Submit</button>
     </div>
     
 </div>

@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {ReactiveFormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
 import { ManageCreateCampaignRoutingModule } from './manage-create-campaign-routing.module';
 
 
@@ -10,8 +8,7 @@ import { ManageCreateCampaignRoutingModule } from './manage-create-campaign-rout
   imports: [
     CommonModule,
     ManageCreateCampaignRoutingModule,
-    ReactiveFormsModule,
-    RouterModule
+    
   ]
 })
 export class ManageCreateCampaignModule { }

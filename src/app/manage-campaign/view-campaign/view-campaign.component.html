@@ -46,8 +46,8 @@
 
                 </table>
                 <div class="action">
-                    <button class="btn btn-primary " (click)="onEdit(userDetails.id)">Edit</button>
-                    <button class="btn btn-danger" (click)="onDelete(userDetails.id)">Delete</button>
+                    <button mat-fab extended class="button" color="primary"  (click)="onEdit(userDetails.id)">Edit</button>
+                    <button mat-fab extended class="button" color="warn" (click)="onDelete(userDetails.id)">Delete</button>
                 </div>
             </div>
             <div class="delete-model" id="delete-model" [class.show]="toDelete">

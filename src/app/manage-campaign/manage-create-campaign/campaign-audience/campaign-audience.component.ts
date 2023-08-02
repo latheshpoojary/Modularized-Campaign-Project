@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import {RouterModule} from '@angular/router';
 import { ReactiveFormsModule,FormGroup,FormBuilder,Validators, FormsModule } from '@angular/forms';
 import {ApiService} from '../../../shared/service/api.service';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-campaign-audience',
   standalone: true,
-  imports: [CommonModule,RouterModule,ReactiveFormsModule,FormsModule],
+  imports: [CommonModule,RouterModule,ReactiveFormsModule,FormsModule,MatButtonModule,MatMenuModule],
   templateUrl: './campaign-audience.component.html',
   styleUrls: ['./campaign-audience.component.scss']
 })

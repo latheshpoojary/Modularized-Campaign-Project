@@ -3,8 +3,8 @@
     <div class="browse">
       
       <input type="search" class="form-control" placeholder="Search..." />
-      <!-- <input type="text" placeholder="Browse &#x25BC;" class="form-control dropdown" (click)="showDetails()"> -->
-      <button #myButton class="btn btn-info" (click)="showDetails(myButton)">Browse &#x25BC;</button>
+      <button #myButton class="btn btn-info" (click)="showDetails(myButton)" >Browse &#x25BC;</button>
+      
     </div>
     <div *ngIf="content" class="content">
       <div class="industry">
@@ -134,19 +134,16 @@
             </div>
           </div>
         </div>
-          
-        
-        
       </div>
-      
-     
-      
     </div>
     <div class="footer mt-3">
-      <button class="btn btn-secondary" (click)="goBack()" [routerLink]="['/create/home/location']">Back</button>
-      <button class="btn btn-primary" (click)="goNext()" [routerLink]="['/create/home/summary']">Next</button>
+      <button 
+      mat-fab extended class="button" color="basic" 
+      (click)="goBack()" [routerLink]="['/create/home/location']">Back</button>
+      <button 
+      mat-fab extended class="button" color="primary" 
+       (click)="goNext()" [routerLink]="['/create/home/summary']">Next</button>
       
     </div>
     
-  </div>
   
