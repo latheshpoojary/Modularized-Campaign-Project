@@ -24,8 +24,8 @@
 
         </div>
         <div class="right">
-            <div class="list-location" *ngIf="formData.location.length>0">
-                <ol class="list-group" *ngFor="let location of formData.location;index as i">
+            <div class="list-location" *ngIf="form.length>0">
+                <ol class="list-group" *ngFor="let location of form;index as i">
                     <li class="list-group-item">
                         <p>{{location}}</p>
                         <div class="action">
@@ -38,7 +38,7 @@
                 </ol>
             </div>
             
-            <div class="emptyLocation" *ngIf="formData.location.length==0">
+            <div class="emptyLocation" *ngIf="form.length==0">
                 <h3 class="mb-3">No Location</h3>
                 <p>You didn't created any location yet</p>
 

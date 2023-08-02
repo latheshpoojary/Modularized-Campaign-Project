@@ -24,6 +24,7 @@ export class ApiService {
     category:'Option1',
     offer_type:'Option2'
   };
+ 
   public campaignList = JSON.parse(JSON.stringify(CampaignData)).data;
   getUser(){
     return this.campaignList;

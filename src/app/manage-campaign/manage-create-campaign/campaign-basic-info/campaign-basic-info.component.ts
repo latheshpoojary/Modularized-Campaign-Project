@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule} from '@angular/router';
 import { ReactiveFormsModule,FormGroup,FormBuilder,Validators } from '@angular/forms';
@@ -19,25 +19,32 @@ import {MatIconModule} from '@angular/material/icon';
 export class CampaignBasicInfoComponent implements OnInit{
   formDetails!: FormGroup;
   formData:any;
+  @Output() formSubmitted: EventEmitter<void> = new EventEmitter<void>();
   constructor(private formBuilder:FormBuilder,private api:ApiService){  
   }
 ngOnInit(): void {
   this.formData=this.api.getForm();
+  // this.formDetails = this.formBuilder.group({
+  //   name:[this.formData.name,
+  //     Validators.required
+  //   ],
+  //   objective:[this.formData.objective,Validators.required],
+  //   category:[this.formData.category],
+  //   request:['Food'],
+  //   status:[this.formData.status],
+  //   CTR:['2.5%'],
+  //   offer_type:[this.formData.offer_type],
+  //   comment:[this.formData.comment],
+  //   location:this.formBuilder.array([])
+  // })
+  
   this.formDetails = this.formBuilder.group({
-    name:[this.formData.name,
-      Validators.required
-    ],
-    objective:[this.formData.objective,Validators.required],
-    category:[this.formData.category],
-    request:['Food'],
-    status:[this.formData.status],
-    CTR:['2.5%'],
-    offer_type:[this.formData.offer_type],
-    comment:[this.formData.comment],
-    location:this.formBuilder.array([])
+    name:['',Validators.required],
+    objective:['',Validators.required],
+    category:[''],
+    offer_type:[''],
+    comment:['']
   })
-  
-  
 
   this.api.progressActive.subscribe(res=>{
     res.camping = true;
@@ -49,9 +56,15 @@ ngOnInit(): void {
   }
 
   sendActivation(){
-    console.log(this.formDetails.controls);
-    const formData = this.formDetails.value;
-    this.api.setFormData(formData);
+    this.formSubmitted.emit();
+    this.formData.objective = this.formDetails.value.objective;
+    this.formData.name = this.formDetails.value.name;
+    this.formData.comment = this.formDetails.value.comment;
+    this.formData.offer_type = this.formDetails.value.offer_type;
+    this.formData.category = this.formDetails.value.category;
+    
+    
+    
     this.api.progressDone.subscribe(res=>{
         res.camping=true;  
     }) 

@@ -6,13 +6,13 @@ import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {SHARED} from './shared/index';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    
+   
   ],
   imports: [
     BrowserModule,

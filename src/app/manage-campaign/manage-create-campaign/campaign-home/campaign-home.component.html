@@ -1,9 +1,9 @@
 <div class="campaign-container">
-    <div class="header">
+    <div class="header mb-3">
         <h3>Campaign</h3>
         <input type="search" placeholder="New Campaign">
     </div>
-    <div class="progress-bar mt-4 mb-4">
+    <!-- <div class="progress-bar mt-4 mb-4">
         <div class="bullet" [class.active]="activeProgress.camping" [class.done]="doneProgress.camping">
             <p>1</p>
         </div>
@@ -14,37 +14,39 @@
         <div class="line" [class.active]="doneProgress.audience"></div>
         <div class="bullet"  [class.done]="doneProgress.audience"><p>4</p></div>
         
-    </div>
-    <!-- <mat-stepper #stepper>
-        <mat-step [stepControl]="" errorMessage="Name is required.">
-           
-            <div>
-              <p>Go to a different step to see the error state</p>
-              <button mat-button matStepperNext>Next</button>
-            </div>
-          
-        </mat-step>
-        <mat-step [stepControl]="" errorMessage="Address is required.">
-           
-            <div>
-              <p>Go to a different step to see the error state</p>
-              <button mat-button matStepperPrevious>Back</button>
-              <button mat-button matStepperNext>Next</button>
-            </div>
-         
-        </mat-step>
-        <mat-step>
-          <ng-template matStepLabel>Done</ng-template>
-          <p>You are now done.</p>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
-          </div>
-        </mat-step>
-      </mat-stepper> -->
-      
-    
+    </div> -->
     <div class="campaign-details">
+    <mat-horizontal-stepper [linear]="true" #stepper>
+      <!-- Step 1 -->
+      <mat-step>
+        <ng-template matStepLabel >Campaign Details</ng-template>
+        <!-- Add other step content here if needed. -->
+        <app-campaign-basic-info (formSubmitted)="stepper.next()"></app-campaign-basic-info>
+      </mat-step>
+    
+      <!-- Step 2 -->
+      <mat-step>
+        <ng-template matStepLabel>Location Details</ng-template>
+        <!-- Add other step content here if needed. -->
+        <app-campaign-location (formSubmitted)="stepper.next()" (formBack)="stepper.previous()"></app-campaign-location>
+      </mat-step>
+    
+      <!-- Step 3 -->
+      <mat-step>
+        <ng-template matStepLabel>Audience</ng-template>
+        <!-- Add other step content here if needed. -->
+        <app-campaign-audience (formSubmitted)="stepper.next()" (formBack)="stepper.previous()"></app-campaign-audience>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Summary</ng-template>
+        <!-- Add other step content here if needed. -->
+        <app-campaign-summary (formBack)="stepper.previous()"></app-campaign-summary>
+      </mat-step>
+    </mat-horizontal-stepper>
+    
+  </div>
+    
+    <!-- <div class="campaign-details">
         <router-outlet></router-outlet>
-    </div>
+    </div> -->
 </div>

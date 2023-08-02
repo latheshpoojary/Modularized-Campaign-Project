@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule} from '@angular/router';
-import { ReactiveFormsModule,FormGroup,FormBuilder,Validators, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormGroup,FormBuilder,Validators, FormsModule, FormArray } from '@angular/forms';
 import {ApiService} from '../../../shared/service/api.service';
 import {MatButtonModule} from '@angular/material/button';
 import {NgIf} from '@angular/common';
@@ -16,7 +16,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   styleUrls: ['./campaign-location.component.scss']
 })
 export class CampaignLocationComponent implements OnInit{
-  public location:string='';
+  public location:any;
   public formData:any;
   public editFlag=false;
   public editIndex='';
@@ -25,15 +25,23 @@ export class CampaignLocationComponent implements OnInit{
   toDelete:boolean=false;
   deleteFlag:boolean=false;
   public myLocation:any=[];
-  constructor(readonly api:ApiService){}
+  formDetails: any;
+
+  @Output() formSubmitted: EventEmitter<void> = new EventEmitter<void>();
+  @Output() formBack: EventEmitter<void> = new EventEmitter<void>();
+  constructor(readonly api:ApiService,private formBuilder:FormBuilder){}
   ngOnInit(): void { 
     this.formData = this.api.getForm();
-    this.api.progressActive.subscribe(res=>
-      res.location=true
-      );
+    this.formDetails = this.formBuilder.group({
+      locationDetails:this.formBuilder.array([],Validators.required)
+    })
+   
   }
-
+  get form(){
+    return this.formDetails.get('locationDetails').value;
+  }
   backToCampaign(){
+    this.formBack.emit();
     this.api.progressActive.subscribe(res=>{
       res.location = false;   
     })
@@ -45,6 +53,7 @@ export class CampaignLocationComponent implements OnInit{
 
 
   goNext(){
+    this.formSubmitted.emit();
     this.api.progressActive.subscribe(res=>{
       res.audience = true;  
     })
@@ -54,15 +63,17 @@ export class CampaignLocationComponent implements OnInit{
     })
   }
 
-
+  get locationDetails(){
+    return this.formDetails.get('locationDetails') as FormArray;
+  }
   addLocation(){
     if(this.editFlag){
       this.myLocation[this.editIndex]=this.location;
       this.editFlag = false;
     }
     else{
-      this.myLocation.unshift(this.location); 
-      this.formData.location = this.myLocation;
+      this.locationDetails.push(this.formBuilder.control(this.location));     
+      this.formData.location = this.locationDetails.value;
      
     }  
       this.location ='';

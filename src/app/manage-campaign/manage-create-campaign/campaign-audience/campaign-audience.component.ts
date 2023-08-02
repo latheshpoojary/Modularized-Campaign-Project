@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule} from '@angular/router';
 import { ReactiveFormsModule,FormGroup,FormBuilder,Validators, FormsModule } from '@angular/forms';
@@ -17,6 +17,8 @@ export class CampaignAudienceComponent implements OnInit{
    
   public content=false;
   buttonText = "";
+  @Output() formSubmitted: EventEmitter<void> = new EventEmitter<void>();
+  @Output() formBack: EventEmitter<void> = new EventEmitter<void>();
   constructor(private api:ApiService){}
   ngOnInit(): void {
     console.log(this.api.getForm());
@@ -54,6 +56,7 @@ export class CampaignAudienceComponent implements OnInit{
 
 
   goBack(){
+    this.formBack.emit();
     this.api.progressActive.subscribe(res=>{
       res.audience = false;
       
@@ -65,6 +68,7 @@ export class CampaignAudienceComponent implements OnInit{
   }
 
   goNext(){
+    this.formSubmitted.emit();
     this.api.progressDone.subscribe(res=>{
       res.audience = true;
     })

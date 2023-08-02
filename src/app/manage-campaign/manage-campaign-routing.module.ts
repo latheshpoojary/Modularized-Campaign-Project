@@ -4,8 +4,10 @@ import { ListCampaignComponent } from './list-campaign/list-campaign.component';
 import { ViewCampaignComponent } from './view-campaign/view-campaign.component';
 
 const routes: Routes = [
+  
  {path:'list-campaign',component:ListCampaignComponent},
  {path:'userDetails/:id',component:ViewCampaignComponent},
+
  
 ];
 
