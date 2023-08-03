@@ -27,6 +27,8 @@ export class ApiService {
  
   public campaignList = JSON.parse(JSON.stringify(CampaignData)).data;
   getUser(){
+    console.log(this.campaignList);
+    
     return this.campaignList;
   }
   setFormData(data:any){

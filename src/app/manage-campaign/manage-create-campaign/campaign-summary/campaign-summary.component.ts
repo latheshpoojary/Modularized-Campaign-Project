@@ -34,6 +34,8 @@ goBack(){
 addCampaign(){
   this.formData.id=this.api.campaignList.length+1;
   this.formData.start_date = new Date();
+  console.log(this.formData);
+  
   this.api.campaignList.push(this.formData);
   console.log(this.api.campaignList);
   

@@ -32,6 +32,8 @@ export class ListCampaignComponent implements OnInit,AfterViewInit{
    
   ngOnInit(): void {
     this.campaignList =this.api.getUser();
+    console.log(this.campaignList);
+    
     this.dataSource = new MatTableDataSource(this.campaignList);
     console.log(this.dataSource);
     
