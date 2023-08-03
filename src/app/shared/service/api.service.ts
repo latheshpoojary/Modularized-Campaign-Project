@@ -31,6 +31,7 @@ export class ApiService {
     
     return this.campaignList;
   }
+  
   setFormData(data:any){
     this.formData = data;   
   }
