@@ -13,28 +13,35 @@ import {MatButtonModule} from '@angular/material/button';
 })
 export class ViewCampaignComponent implements OnInit{
   
-    userDetails: any | null = null;
-    userID: any | null = null;
-    index!:number;
+    campaignDetails: any | null = null;
+    campaignID: any | null = null;
+    id:any;
     toDelete=false;
     showEdit=false;
-    constructor(private api: ApiService, private route: ActivatedRoute) {}
-    
+    constructor(private api: ApiService, private route: ActivatedRoute) {}  
     ngOnInit(): void {
-      this.userID = this.route.snapshot.paramMap.get('id');
-      console.log(this.userID);
-      this.userDetails = this.api.getUser().find((item:any)=>item.id.toString()===this.userID);
+      // getting Id from the URL
+      this.campaignID = this.route.snapshot.paramMap.get('id');
+      //Getting Campaign using userId
+      this.api.getCampaign().subscribe(res=>{
+        this.campaignDetails= res.find((item:any)=>item.id.toString()===this.campaignID);
+      })
       };
+      //getting campaignId for Edit
       onEdit(id:any){
-        this.showEdit= true;  
+        this.showEdit= true;  //show edit pop up
       }
+      //getting CampaignId for delete
       onDelete(id:any){
-        this.index = id-1;
-        console.log(this.index);  
-        this.toDelete = true;
+        this.id = id;
+        this.toDelete = true; //show Delete Pop Up
       }
+      //delete the Campaign
       deleteConfirmed(){   
-        this.api.getUser().splice(this.index,1);
+        this.api.getCampaign().subscribe(res=>{
+          const deleteIndex = res.indexOf(res.filter((res:any)=>res.id === this.id)[0]); //get the index of campaign from the list 
+          res.splice(deleteIndex,1); //delete Campaign
+        })
       }
 }
 

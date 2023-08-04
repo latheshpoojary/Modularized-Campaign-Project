@@ -2,13 +2,8 @@
     <h5>Location Details</h5>
     
     <div class="location-block">
+        <!-- Map and Search Part -->
         <div class="left">
-            <!-- <input type="search" 
-            class="form-control mb-3" 
-            placeholder="Search Location" 
-            [(ngModel)]="location" 
-            #search
-            (change)="addLocation()" > -->
             <mat-form-field class="example-full-width search" appearance="outline">
               <mat-label>Search Location</mat-label>
                 <input 
@@ -20,29 +15,30 @@
                 (change)="addLocation()">
               </mat-form-field>
            
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7778.478830194827!2d74.8426176407174!3d12.892320949663096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a6b9e3a51f1%3A0xa806a28ba66f5251!2sBejai%2C%20Mangaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1690123245030!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7778.478830194827!2d74.8426176407174!3d12.892320949663096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a6b9e3a51f1%3A0xa806a28ba66f5251!2sBejai%2C%20Mangaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1690123245030!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
         </div>
+        <!-- Storing Location Part-->
         <div class="right">
             <div class="list-location" *ngIf="form.length>0">
                 <ol class="list-group" *ngFor="let location of form;index as i">
                     <li class="list-group-item">
                         <p>{{location}}</p>
                         <div class="action">
-                            <i class="fa-solid fa-pen" (click)="onEdit(search,i)" ></i>
+                            <i class="fa-solid fa-pen" (click)="onEdit(search,i)" ></i>   
                             <i class="fa-solid fa-trash"      
-                            (click)="deleteLocation(i)"></i>
+                            (click)="deleteLocation(i)"></i>  
                         </div>
                         
                     </li>                
                 </ol>
             </div>
-            
+              <!--Message for Empty Location  -->
             <div class="emptyLocation" *ngIf="form.length==0">
                 <h3 class="mb-3">No Location</h3>
                 <p>You didn't created any location yet</p>
-
-            </div>         
+            </div>  
+          <!-- Radius Input -->
             <div class="display-distance">
                 <label for="" class="form-label">Radius</label>
                 <select name="" id="" class="form-select">
@@ -53,6 +49,7 @@
                 </select>
             </div>
         </div> 
+        <!-- Delete  Model-->
         <div class="delete-model" id="delete-model" [class.show]="toDelete">
             <div class="delete-image">
                 <img src="" alt="">
@@ -62,22 +59,25 @@
                 <p>This Location will be deleted permanently!</p>
             </div>
             <div class="confirm-buttons">
-                <button class="btn btn-secondary" (click)="toDelete=false">Cancel</button>
-                <button class="btn btn-danger" (click)="deleteConfirmed()">Delete</button>
+                <button  mat-fab extended class="button" color="back" (click)="toDelete=false">Cancel</button>
+                <button  mat-fab extended class="button" color="warn" (click)="deleteConfirmed()">Delete</button>
             </div>
 
         </div>
     </div>
+    <!-- Navigation Buttons -->
     <div class="footer">
+        <!-- previous Form -->
         <div class="left">
             <button  
-            mat-fab extended class="button" color="basic" 
+           mat-stroked-button class="button" color="basic" 
             [routerLink]="['/create/home/basic']" (click)="backToCampaign()">Back</button>
             
         </div>
+        <!-- Next Form -->
         <div class="right text-end">
             <button
-            mat-fab extended class="button" color="primary" 
+            mat-raised-button class="button" color="primary" 
             [routerLink]="['/create/home/audience']" (click)="goNext()">Next</button>
         </div>
         

@@ -6,6 +6,7 @@
       <button #myButton class="btn btn-info" (click)="showDetails(myButton)" >Browse &#x25BC;</button>
       
     </div>
+    <!-- Show the Nested Menu -->
     <div *ngIf="content" class="content">
       <div class="industry">
         <div class="heading">
@@ -138,10 +139,10 @@
     </div>
     <div class="footer mt-3">
       <button 
-      mat-fab extended class="button" color="basic" 
+      mat-stroked-button class="button" color="basic" 
       (click)="goBack()" [routerLink]="['/create/home/location']">Back</button>
       <button 
-      mat-fab extended class="button" color="primary" 
+      mat-raised-button class="button" color="primary" 
        (click)="goNext()" [routerLink]="['/create/home/summary']">Next</button>
       
     </div>

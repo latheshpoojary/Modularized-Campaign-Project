@@ -1,7 +1,7 @@
 <div class="workspace-container">
     
     
-    <!-- Content to display when current is true -->
+   <!-- Header Section -->
     <div class="header-container">
         <h3 class="header-text">
             Manage Campaigns
@@ -12,44 +12,73 @@
             <option value="">Sathwik</option>
         </select>
     </div>
-    <div class="title mt-3">
-        <p>User Details</p>
-      </div>
+   
+    <!-- Campaign Detail Section -->
     <div class="display-details">
-        <div class="userdetails">
-            <div class="left ">
-                <img src="./../../../assets/image/person.jpg" alt="" class="mb-2">
-                <h3>{{userDetails.name}}</h3>
+        <div class="top-section d-flex justify-content-between">
+            <div class="title mt-3">
+                <p>User Details</p>
             </div>
-
+            <button mat-stroked-button class="button" color="back"  routerLink="/campaign/list-campaign">Back</button>
+        </div>
+       
+        <div class="userdetails">
+            <!-- Profile And Name -->
+            <div class="left ">
+                <img src="./../../../assets/image/campaign.jpg" alt="" class="mb-2">
+                <h3>{{campaignDetails.name}}</h3>
+            </div>
+           
+            <!-- Information -->
             <div class="right">
                 <table class="table">
                     <tr>
                         <td >Program ID</td>
-                        <td>{{userDetails.id}}</td>
+                        <td>{{campaignDetails.id}}</td>
+                    </tr>
+                    <tr>
+                        <td>Objective</td>
+                        <td>{{campaignDetails.objective}}</td>
+                    </tr>
+                    <tr>
+                        <td>Category</td>
+                        <td>{{campaignDetails.Category}}</td>
+                    </tr>
+                    <tr>
+                        <td>Offer Type</td>
+                        <td>{{campaignDetails.Offer_type}}</td>
                     </tr>
                     <tr>
                         <td >Status</td>
                         <td>
-                            <div class="status" [style.backgroundColor]="userDetails.status === 'completed' ? '#ccffcc' : userDetails.status === 'draft' ? '#e6e6e6' : '#ccccff'">
-                                {{userDetails.status}}
+                            <div class="status" [style.backgroundColor]="campaignDetails.status === 'completed' ? '#ccffcc' : campaignDetails.status === 'draft' ? '#e6e6e6' : '#ccccff'">
+                                {{campaignDetails.status}}
                             </div></td>
                     </tr>
                     <tr>
                         <td>CTR</td>
-                        <td>{{userDetails.CTR}}</td>
+                        <td>{{campaignDetails.CTR}}</td>
                     </tr>
                     <tr>
                         <td>Start Date</td>
-                        <td>{{userDetails.start_date | date:'dd MMMM, h:mm a(YYYY)'}}</td>
+                        <td>{{campaignDetails.start_date | date:'dd MMMM, h:mm a(YYYY)'}}</td>
+                    </tr>
+                    
+                   
+                    <tr>
+                        <td >Location</td>
+                        <td class="locations">
+                           <span *ngFor="let location of campaignDetails.location" class="location">{{location}}</span>
+                        </td>
                     </tr>
 
                 </table>
                 <div class="action">
-                    <button mat-fab extended class="button" color="primary"  (click)="onEdit(userDetails.id)">Edit</button>
-                    <button mat-fab extended class="button" color="warn" (click)="onDelete(userDetails.id)">Delete</button>
+                    <button mat-raised-button class="button" color="primary"  (click)="onEdit(campaignDetails.id)">Edit</button>
+                    <button mat-raised-button class="button" color="warn" (click)="onDelete(campaignDetails.id)">Delete</button>
                 </div>
             </div>
+            <!-- Delete Model -->
             <div class="delete-model" id="delete-model" [class.show]="toDelete">
                 <div class="delete-image">
                     <img src="" alt="">
@@ -59,17 +88,18 @@
                     <p>This Location will be deleted permanently!</p>
                 </div>
                 <div class="confirm-buttons">
-                    <button class="btn btn-secondary" (click)="toDelete=false">Cancel</button>
-                    <button class="btn btn-danger" [routerLink]="['/campaign/list-campaign']" (click)="deleteConfirmed()">Delete</button>
+                    <button mat-fab extended class="button" color="back" (click)="toDelete=false">Cancel</button>
+                    <button  mat-fab extended class="button" color="warn" [routerLink]="['/campaign/list-campaign']" (click)="deleteConfirmed()">Delete</button>
                 </div>
     
             </div>
             
         </div>
     </div>
+    <!-- Edit Model -->
     <div class="edit-model" [class.show]="showEdit">
         <form class="form">
-            <h3 class="text-center">Edit User</h3>
+            <h3 class="text-center">Edit Campaign</h3>
             <div class="form-group mb-3">
                 <label class="form-label">Name:</label>
                 <input type="text" class="form-group" placeholder="Name" class="form-control">
@@ -89,8 +119,8 @@
             </div>
         </form>
         <div class="confirm-buttons">
-            <button class="btn btn-secondary " (click)="showEdit=false">Cancel</button>
-            <button class="btn btn-danger mx-3" routerLink="/campaign" (click)="deleteConfirmed()">Submit</button>
+            <button mat-fab extended   color="back"    (click)="showEdit=false">Cancel</button>
+            <button mat-fab extended class="mx-3" color="primary" routerLink="/campaign" (click)="deleteConfirmed()">Submit</button>
         </div>
     </div>
     

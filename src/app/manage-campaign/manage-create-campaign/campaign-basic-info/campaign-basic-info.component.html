@@ -1,7 +1,9 @@
 <div class="campaign-details">
   
     <h5 class="mb-3">Campaign details</h5>
+    <!-- Creating New Form -->
     <form class="form" [formGroup]="formDetails">
+      <!-- Campaign Name -->
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Campaign Name</mat-label>
         <input type="text" matInput formControlName="name"
@@ -10,6 +12,7 @@
           Name is required
         </mat-error>
       </mat-form-field>
+      <!-- Campaign Objective -->
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Campaign Objective</mat-label>
         <input type="text" matInput formControlName="objective"
@@ -18,6 +21,7 @@
           Objective is required
         </mat-error>
       </mat-form-field>
+      <!-- Campaign Category -->
       <div class="optional">
         <mat-form-field appearance="outline">
           <mat-label>Campaign Category</mat-label>
@@ -36,15 +40,15 @@
           </mat-select>
         </mat-form-field>
       </div>
+      <!-- Comment -->
       <mat-form-field appearance="outline">
         <mat-label>Additional Comments</mat-label>
         <textarea matInput formControlName="comment"></textarea>
       </mat-form-field>
     </form>
-    
+    <!-- Navigate to Next Section -->
     <div class="text-end">
-      <!-- <button [routerLink]="['/create/home/location']" class="btn btn-primary mt-3" type="submit" [disabled]="!formDetails.valid" (click)="sendActivation()">Next</button> -->
-      <button mat-fab extended class="button" color="primary" [routerLink]="['/create/home/location']" type="submit" [disabled]="!formDetails.valid" (click)="sendActivation()">
+      <button mat-raised-button class="button" color="primary" [routerLink]="['/create/home/location']" type="submit" [disabled]="!formDetails.valid" (click)="sendActivation()">
         Next
       </button>
     </div>

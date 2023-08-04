@@ -13,65 +13,37 @@ import {MatButtonModule} from '@angular/material/button';
   templateUrl: './campaign-audience.component.html',
   styleUrls: ['./campaign-audience.component.scss']
 })
-export class CampaignAudienceComponent implements OnInit{
+export class CampaignAudienceComponent{
    
   public content=false;
   buttonText = "";
   @Output() formSubmitted: EventEmitter<void> = new EventEmitter<void>();
   @Output() formBack: EventEmitter<void> = new EventEmitter<void>();
   constructor(private api:ApiService){}
-  ngOnInit(): void {
-    console.log(this.api.getForm());
-    
-    this.api.progressActive.subscribe(res=>{
-      res.audience = true;
-    })
-  }
-  
-  
-  
-  
+
+  // change the icon sign
   showDetails(btn:any){
-    
     this.buttonText = btn.textContent;
     let withoutIcon = this.buttonText.substring(0,this.buttonText.length-1);
     if(this.content){
-      withoutIcon+='▲';
-      
+      withoutIcon+='▲'; 
     }
     else{
-      withoutIcon+='▼';
-      
+      withoutIcon+='▼';  
     }
     btn.textContent= withoutIcon;
-
-    
-    
-    
-    this.content = !this.content;
-    console.log();
-    
+    this.content = !this.content;  
   }
 
-
-
+  // back button is clicked
   goBack(){
     this.formBack.emit();
-    this.api.progressActive.subscribe(res=>{
-      res.audience = false;
-      
-    })
-    this.api.progressDone.subscribe(res=>{
-      res.location =false;
-    })
     
   }
 
+  // next button is clicked
   goNext(){
     this.formSubmitted.emit();
-    this.api.progressDone.subscribe(res=>{
-      res.audience = true;
-    })
     
   }
 }

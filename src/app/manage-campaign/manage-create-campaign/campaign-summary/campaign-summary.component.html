@@ -1,28 +1,88 @@
 <div class="summary-container">
-    <h5>Summary</h5>
-    <div class="display-details">
-        <div class="fields">
-            <p>Objective</p>
-            <p>Category</p>
-            <p>Offer Type</p>
-            <p>Comment</p>
-            <p>Status</p>
-            <p>Location</p>
-        </div>
-        <div class="values">
-            <p>{{formData.objective || "Empty"}}</p>
-            <p>{{formData.category || "Empty"}}</p>
-            <p>{{formData.offer_type || "Empty" }}</p>
-            <p>{{formData.comment || "Empty"}}</p>
-            <p class="status" [style.backgroundColor]="formData.status === 'completed' ? '#ccffcc' : formData.status === 'draft' ? '#e6e6e6' : '#ccccff'">{{formData.status}}</p>
-            <p>{{formData.location || "Empty"}}</p>
-        </div>
+  <h5>Summary</h5>
+  <div class="userdetails">
+    <!-- Profile And Name -->
+    <div class="left">
+      <img src="../../../../assets/image/campaign.jpg" alt="" class="mb-2" />
+      <h3>{{ formData.name }}</h3>
     </div>
-    <div class="footer">
-        <button mat-fab extended class="button mx-3" color="basic" 
-        [routerLink]="['/create/home/audience']" (click)="goBack()">Back</button>
-        <button mat-fab extended class="button" color="primary" 
-         routerLink="/campaign/list-campaign" (click)="addCampaign()">Submit</button>
+
+    <!-- Information -->
+    <div class="right">
+      <table class="table">
+        <tr>
+          <td>Program ID</td>
+          <td>{{ formData.id }}</td>
+        </tr>
+        <tr>
+          <td>Objective</td>
+          <td>{{ formData.objective || "Empty" }}</td>
+        </tr>
+        <tr>
+          <td>Category</td>
+          <td>{{ formData.category || "Empty" }}</td>
+        </tr>
+        <tr>
+          <td>Offer Type</td>
+          <td>{{ formData.offer_type || "Empty" }}</td>
+        </tr>
+        <tr>
+          <td>Status</td>
+          <td>
+            <div
+              class="status"
+              [style.backgroundColor]="
+                formData.status === 'completed'
+                  ? '#ccffcc'
+                  : formData.status === 'draft'
+                  ? '#e6e6e6'
+                  : '#ccccff'
+              "
+            >
+              {{ formData.status }}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>CTR</td>
+          <td>{{ formData.CTR }}</td>
+        </tr>
+        <tr>
+          <td>Campaign Started Date</td>
+          <td>{{ formData.start_date | date : "dd MMMM, h:mm a(YYYY)" }}</td>
+        </tr>
+
+        <tr>
+          <td>Location</td>
+          <td class="locations">
+            <span *ngFor="let location of formData.location" class="location">{{
+              location
+            }}</span>
+          </td>
+        </tr>
+      </table>
+      <div class="footer">
+        <button
+          mat-stroked-button
+          class="button"
+          color="basic"
+          [routerLink]="['/create/home/audience']"
+          (click)="goBack()"
+        >
+          Back
+        </button>
+        <button
+          mat-raised-button
+          extended
+          class="button mx-3"
+          color="primary"
+          routerLink="/campaign/list-campaign"
+          (click)="addCampaign()"
+        >
+          Submit
+        </button>
+      </div>
     </div>
     
+  </div>
 </div>

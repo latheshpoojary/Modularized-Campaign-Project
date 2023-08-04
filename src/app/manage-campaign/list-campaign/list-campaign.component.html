@@ -1,24 +1,33 @@
 <div class="workspace-container">
-  <!-- Content to display when current is true -->
+  <!-- Header  -->
   <div class="header-container">
     <h3 class="header-text">Manage Campaigns</h3>
-    <select name="" id="">
-      <option value="">Lathesh</option>
-      <option value="">Vikash</option>
-      <option value="">Sathwik</option>
-    </select>
+    <div class="users">
+      <mat-form-field>
+        <mat-label>Select Admin</mat-label>
+        <mat-select>
+          <mat-option value="option">Lathesh</mat-option>
+          <mat-option value="option">Vikash</mat-option>
+          <mat-option value="option">Sathwik</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
   </div>
+  <!-- List Section -->
   <div class="title mt-3">
     <p>Manage Campaigns</p>
   </div>
   <div class="display-list p-4">
     <button
-      class="btn btn-primary mb-3"
+    mat-raised-button color="primary"
+    class="button mb-3"
       routerLink="/create/home"
     >
       Create Campaign
     </button>
-    <table
+    <!-- Listing Campaign Details -->
+    <div class="table-container">
+      <table
       mat-table
       [dataSource]="dataSource"
       matSort
@@ -46,7 +55,12 @@
           [routerLink]="['/campaign/userDetails', element.id]"
           class="userName"
         >
-          {{ element.request }}, {{ element.name }}
+          <a mat-list-item routerLinkActive="active"> 
+            <span class="center">
+              {{ element.request }}, {{ element.name }}
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="link"></mat-icon>
+           
+          </span></a>
         </td>
       </ng-container>
 
@@ -88,6 +102,7 @@
         </th>
         <td mat-cell *matCellDef="let element">{{ element.CTR }}</td>
       </ng-container>
+      <!-- Start Date Column -->
       <ng-container matColumnDef="start_date">
         <th
           mat-header-cell
@@ -101,9 +116,9 @@
           {{ element.start_date | date : "dd MMMM, h:mm a(YYYY)" }}
         </td>
       </ng-container>
-
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
+    </div>   
   </div>
 </div>

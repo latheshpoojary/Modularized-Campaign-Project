@@ -6,17 +6,7 @@ import {BehaviorSubject, from, of} from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  public progressActive = new BehaviorSubject<any>({
-    camping:false,
-    location:false,
-    audience:false
-  })
-  public progressDone = new BehaviorSubject<any>({
-    camping:false,
-    location:false,
-    audience:false
-  })
-
+  // default form Value
   formData:any={
     dieses:'food',
     CTR:"2.5%",
@@ -24,18 +14,31 @@ export class ApiService {
     category:'Option1',
     offer_type:'Option2'
   };
+  // get the Json Data
+  public campaignList:any[] = JSON.parse(JSON.stringify(CampaignData)).data;
+  // setting default Campaign List
+  public campaignForm = new BehaviorSubject<any>(this.campaignList);
  
-  public campaignList = JSON.parse(JSON.stringify(CampaignData)).data;
-  getUser(){
-    console.log(this.campaignList);
-    
-    return this.campaignList;
+  // add form into the table
+  setCampaignData(data:any){
+    console.log("received ->", data); 
+    this.campaignList.push(data);
+    this.campaignForm.next(this.campaignList);
+    console.log("service list-> ", this.campaignList);
+    console.log("service form-> ", this.campaignForm);
   }
-  
-  setFormData(data:any){
+  // add values into the forms
+  setFormData(data:any): void{
     this.formData = data;   
   }
+  // receive form
   getForm(){
     return this.formData;
+  }
+
+  // receive Campaign List
+  getCampaign(){
+    console.log("Sending -> ",this.campaignForm);
+    return this.campaignForm.asObservable();
   }
 }

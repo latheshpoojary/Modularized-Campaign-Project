@@ -20,18 +20,26 @@
         color: $header-text;
         text-align: center;
       }
-      select {
-        padding: 0.2rem;
-        border-radius: 0.1rem;
+      .users{
+        width: 20%;
+        .mat-mdc-form-field{
+          display: block;
+        }
       }
-      input {
-        padding: 0.5rem;
-      }
+     
     }
     .display-list {
       background-color: #ffffff;
       border-radius: 8px;
       width: 100%;
+      .table-container{
+        overflow: auto;
+        .center{
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+      }
       .display-header {
         display: flex;
         justify-content: space-between;

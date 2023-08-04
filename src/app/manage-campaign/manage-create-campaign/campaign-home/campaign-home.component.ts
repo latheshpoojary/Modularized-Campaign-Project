@@ -12,6 +12,10 @@ import { CampaignBasicInfoComponent } from "../campaign-basic-info/campaign-basi
 import { CampaignLocationComponent } from "../campaign-location/campaign-location.component";
 import { CampaignAudienceComponent } from "../campaign-audience/campaign-audience.component";
 import { CampaignSummaryComponent } from "../campaign-summary/campaign-summary.component";
+import {BreakpointObserver} from '@angular/cdk/layout';
+import {StepperOrientation} from '@angular/material/stepper';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 @Component({
     selector: 'app-campaign-home',
     standalone: true,
@@ -19,22 +23,17 @@ import { CampaignSummaryComponent } from "../campaign-summary/campaign-summary.c
     styleUrls: ['./campaign-home.component.scss'],
     imports: [CommonModule, ReactiveFormsModule, RouterModule, MatButtonModule, MatFormFieldModule, MatStepperModule, MatInputModule, CampaignBasicInfoComponent, CampaignLocationComponent, CampaignAudienceComponent, CampaignSummaryComponent]
 })
-export class CampaignHomeComponent implements OnInit{
+export class CampaignHomeComponent{
 
   @ViewChild('stepper') stepper!: MatStepper;
-  @Input() formSubmitted: any="invalid";
   public activeProgress:any=null;
   public doneProgress:any=null;
-  constructor(private api:ApiService){}
- ngOnInit(): void {
-   this.api.progressActive.subscribe(res=>{
-    this.activeProgress = res;
-   })
-   this.api.progressDone.subscribe(res=>{
-    this.doneProgress = res;
-   })
- }
-
-  }
+  stepperOrientation: Observable<StepperOrientation>;
+  constructor(private api:ApiService,breakpointObserver: BreakpointObserver){
+    this.stepperOrientation = breakpointObserver
+      .observe('(min-width: 800px)')
+      .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
+  } 
+}
 
 
