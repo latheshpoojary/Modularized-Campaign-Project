@@ -29,6 +29,7 @@ export class ApiService {
     if(this.editId){
       const index = this.campaignList.findIndex((data) => data.id === this.editId);
       this.campaignList[index]= data;
+      this.editId='';
     }
     else{
       this.campaignList.push(data);
