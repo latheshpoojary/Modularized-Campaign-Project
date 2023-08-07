@@ -6,28 +6,34 @@ import {BehaviorSubject, from, of} from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
+  public editId :any;
   // default form Value
-  formData:any={
-    dieses:'food',
-    CTR:"2.5%",
-    status:'draft',
-    category:'Option1',
-    offer_type:'Option2'
-  };
+  formData:any;
   //To store edit form Value
   editForm:any[]=[];
-  // get the Json Data
+
+  // get the Json Data(temporary data)
   public campaignList:any[] = JSON.parse(JSON.stringify(CampaignData)).data;
+
   // setting default Campaign List
   public campaignForm = new BehaviorSubject<any>(this.campaignList);
  
+
+   // receive Campaign form
+   getCampaign(){
+    return this.campaignForm.asObservable();
+  }
+
   // add form into the table
   setCampaignData(data:any){
-    console.log("received ->", data); 
-    this.campaignList.push(data);
+    if(this.editId){
+      const index = this.campaignList.findIndex((data) => data.id === this.editId);
+      this.campaignList[index]= data;
+    }
+    else{
+      this.campaignList.push(data);
+    }
     this.campaignForm.next(this.campaignList);
-    console.log("service list-> ", this.campaignList);
-    console.log("service form-> ", this.campaignForm);
   }
 
   // add values into the forms
@@ -40,11 +46,31 @@ export class ApiService {
     return this.formData;
   }
 
-  // receive Campaign List
-  getCampaign(){
-    console.log("Sending -> ",this.campaignForm);
-    return this.campaignForm.asObservable();
+  //getting data to be edited
+  getEditData(data:any,id:any){
+    this.editForm = data;
+    this.editId = id;   
   }
 
-  
+  //creating  default and editable form data
+
+  createCampaign(){
+    
+    if(this.editId){
+       this.formData = JSON.parse(JSON.stringify(this.editForm)); //for Edition
+    }
+    else{ 
+      this.formData= {
+        name:'',
+        objective:'',
+        comment:'',
+        request:'food',
+        CTR:"2.5%",
+        status:'draft',
+        category:'',
+        offer_type:'',
+        location:[]
+      }
+    }
+  } 
 }

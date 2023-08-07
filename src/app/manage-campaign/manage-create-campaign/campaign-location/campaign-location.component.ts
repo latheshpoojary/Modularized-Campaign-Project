@@ -34,7 +34,7 @@ export class CampaignLocationComponent implements OnInit {
     this.formData = this.api.getForm(); //get the form Data
     // creating formBuilder
     this.formDetails = this.formBuilder.group({
-      locationDetails: this.formBuilder.array([], Validators.required)
+      locationDetails: this.formBuilder.array(this.formData.location, Validators.required)
     })
 
   }

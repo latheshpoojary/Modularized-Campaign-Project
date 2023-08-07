@@ -16,6 +16,7 @@ import {BreakpointObserver} from '@angular/cdk/layout';
 import {StepperOrientation} from '@angular/material/stepper';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+
 @Component({
     selector: 'app-campaign-home',
     standalone: true,
@@ -33,7 +34,9 @@ export class CampaignHomeComponent{
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
       .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
-  } 
+  }
+  
+  
 }
 
 

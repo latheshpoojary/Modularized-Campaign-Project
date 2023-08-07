@@ -14,6 +14,6 @@ import {ApiService} from '../../app/shared/service/api.service';
     SHARED
     
   ],
-  providers:[NgModule,ApiService]
+  providers:[NgModule]
 })
 export class ManageCampaignModule { }

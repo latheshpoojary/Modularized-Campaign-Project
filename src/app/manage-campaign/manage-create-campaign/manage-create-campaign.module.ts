@@ -9,6 +9,7 @@ import { ManageCreateCampaignRoutingModule } from './manage-create-campaign-rout
     CommonModule,
     ManageCreateCampaignRoutingModule,
     
-  ]
+  ],
+  providers:[]
 })
 export class ManageCreateCampaignModule { }

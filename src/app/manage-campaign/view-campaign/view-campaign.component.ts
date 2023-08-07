@@ -1,7 +1,7 @@
 import { Component ,OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ApiService} from '../../shared/service/api.service';
-import {ActivatedRoute,RouterModule} from '@angular/router';
+import {ActivatedRoute,RouterModule,Route} from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
 
 @Component({
@@ -34,6 +34,7 @@ export class ViewCampaignComponent implements OnInit{
         const editValues = this.api.getCampaign().subscribe(res=>{
           editForm = res.filter((res:any)=>res.id=== id)[0];
         })
+       this.api.getEditData(editForm,id);
        
         
       }

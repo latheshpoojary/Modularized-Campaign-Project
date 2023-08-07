@@ -40,62 +40,10 @@
           gap: 0.5rem;
         }
       }
-      .display-header {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        select {
-          padding: 0.1rem !important;
-        }
-        button {
-          border: transparent;
-        }
-      }
-      .display-container {
-        width: 100%;
-        height: 60vh;
-        overflow-y: scroll;
-        table {
-          width: 100%;
-          overflow: scroll;
-          th,
-          td {
-            width: fit-content;
-            &:nth-child(3) {
-              text-align: center;
-              .status {
-                margin-inline: auto;
-              }
-            }
-          }
-          td:nth-child(1) {
-            padding-left: 2.5%;
-          }
-          td.userName::after {
-            content: url("../../../assets/icons/link.svg");
-            display: inline-block;
-            margin-left: 1rem;
-          }
-        }
-      }
-      .title,
-      td,
-      th {
-        font-size: 0.8rem !important;
-      }
-      .form-select {
-        padding: 0.5rem;
-        background-color: #b3b3b3 !important;
-        option {
-          background-color: #fff;
-        }
-      }
-      .userName {
-        cursor: pointer;
-      }
       .status {
-        width: 6rem;
-        padding: 0.5rem;
+        width: 100%;
+        display: inline-block;
+        padding: 0.5rem 0;
         text-align: center;
         background-color: aqua;
         border-radius: 2.5rem;

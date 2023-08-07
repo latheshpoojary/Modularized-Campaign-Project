@@ -44,11 +44,11 @@
                     </tr>
                     <tr>
                         <td>Category</td>
-                        <td>{{campaignDetails.Category}}</td>
+                        <td>{{campaignDetails.category}}</td>
                     </tr>
                     <tr>
                         <td>Offer Type</td>
-                        <td>{{campaignDetails.Offer_type}}</td>
+                        <td>{{campaignDetails.offer_type}}</td>
                     </tr>
                     <tr>
                         <td >Status</td>
@@ -76,7 +76,10 @@
 
                 </table>
                 <div class="action">
-                    <button mat-raised-button class="button" color="primary"  (click)="onEdit(campaignDetails.id)">Edit</button>
+                    <button mat-raised-button 
+                    class="button" color="primary"  
+                    routerLink="/create/home/basic"
+                    (click)="onEdit(campaignDetails.id)">Edit</button>
                     <button mat-raised-button class="button" color="warn" (click)="onDelete(campaignDetails.id)">Delete</button>
                 </div>
             </div>

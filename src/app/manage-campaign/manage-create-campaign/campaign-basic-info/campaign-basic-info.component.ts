@@ -24,14 +24,17 @@ export class CampaignBasicInfoComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private api: ApiService) {
   }
   ngOnInit(): void {
+    this.api.createCampaign();
     this.formData = this.api.getForm(); //get the Form
+    console.log(this.formData.name);
+    
     // creating FormBuilder
     this.formDetails = this.formBuilder.group({
-      name: [, Validators.required],
-      objective: ['', Validators.required],
-      category: [''],
-      offer_type: [''],
-      comment: ['']
+      name: [this.formData.name, Validators.required],
+      objective: [this.formData.objective, Validators.required],
+      category: [this.formData.category],
+      offer_type: [this.formData.offer_type],
+      comment: [this.formData.comment]
     })
   }
 // providing form values to the Template
@@ -41,12 +44,13 @@ export class CampaignBasicInfoComponent implements OnInit {
 
 // send Message to parent and Update the form.
   sendActivation() {
-    this.formSubmitted.emit();
+   
     this.formData.objective = this.formDetails.value.objective;
     this.formData.name = this.formDetails.value.name;
     this.formData.comment = this.formDetails.value.comment;
     this.formData.offer_type = this.formDetails.value.offer_type;
     this.formData.category = this.formDetails.value.category;
+    this.formSubmitted.emit();
 
   }
 }
