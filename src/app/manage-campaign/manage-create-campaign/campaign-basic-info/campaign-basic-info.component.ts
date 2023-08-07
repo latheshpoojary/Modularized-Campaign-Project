@@ -19,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 export class CampaignBasicInfoComponent implements OnInit {
   formDetails!: FormGroup;
   formData: any;
+  editForm:any;
   @Output() formSubmitted: EventEmitter<void> = new EventEmitter<void>(); //Emit message to parent
   constructor(private formBuilder: FormBuilder, private api: ApiService) {
   }
@@ -26,7 +27,7 @@ export class CampaignBasicInfoComponent implements OnInit {
     this.formData = this.api.getForm(); //get the Form
     // creating FormBuilder
     this.formDetails = this.formBuilder.group({
-      name: ['', Validators.required],
+      name: [, Validators.required],
       objective: ['', Validators.required],
       category: [''],
       offer_type: [''],

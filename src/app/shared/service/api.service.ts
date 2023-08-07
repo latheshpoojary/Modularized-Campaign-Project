@@ -14,6 +14,8 @@ export class ApiService {
     category:'Option1',
     offer_type:'Option2'
   };
+  //To store edit form Value
+  editForm:any[]=[];
   // get the Json Data
   public campaignList:any[] = JSON.parse(JSON.stringify(CampaignData)).data;
   // setting default Campaign List
@@ -27,10 +29,12 @@ export class ApiService {
     console.log("service list-> ", this.campaignList);
     console.log("service form-> ", this.campaignForm);
   }
+
   // add values into the forms
   setFormData(data:any): void{
     this.formData = data;   
   }
+
   // receive form
   getForm(){
     return this.formData;
@@ -41,4 +45,6 @@ export class ApiService {
     console.log("Sending -> ",this.campaignForm);
     return this.campaignForm.asObservable();
   }
+
+  
 }

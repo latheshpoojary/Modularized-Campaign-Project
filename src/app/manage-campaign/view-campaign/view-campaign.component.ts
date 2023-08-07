@@ -29,7 +29,13 @@ export class ViewCampaignComponent implements OnInit{
       };
       //getting campaignId for Edit
       onEdit(id:any){
+        let editForm;
         this.showEdit= true;  //show edit pop up
+        const editValues = this.api.getCampaign().subscribe(res=>{
+          editForm = res.filter((res:any)=>res.id=== id)[0];
+        })
+       
+        
       }
       //getting CampaignId for delete
       onDelete(id:any){
