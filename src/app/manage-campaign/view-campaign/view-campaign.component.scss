@@ -141,24 +141,7 @@
         }
       }
     }
-    .edit-model {
-      position: absolute;
-      top: 12%;
-      left: 30%;
-      width: 45%;
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      background-color: #ffffff;
-      transform: scale(0);
-      transition: transform 0.3s;
-      &.show {
-        transform: scale(1);
-      }
-    }
-
+ 
   .button{
     width: 100px !important;
   }  
