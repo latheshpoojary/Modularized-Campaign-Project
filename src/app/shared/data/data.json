@@ -2,108 +2,148 @@
     "data":[
       {
       "id":1,
-      "request":"Food",
-      "name":"John",
+      "name":"Fitness Frenzy",
       "status":"completed",
       "CTR":"2.5%",
       "start_date":"2023-07-22T12:34:56Z",
       "objective":"Need Blood",
       "category":"Category 1",
       "offer_type":"Offer 2",
-      "location":["Bedra","karla"]
-
-
-
-    },
-    {
-      "id":2,
-      "request":"Food",
-      "name":"Seen",
-      "status":"draft",
-      "CTR":"1.5%",
-      "start_date":"2023-07-22T12:34:56Z",
-      "objective":"Need Blood",
-      "category":"Category 1",
-      "offer_type":"Offer 2",
-      "location":["Bedra","karla"]
-
+      "location":["Bedra","karla"],
+      "comments": "Get ready for hot summer deals!",
+      "request":"food"
 
     },
     {
+      "name": "Summer Sale 2023",
+      "objective": "Increase product sales during the summer season",
+      "offer_type": "Discount",
+      "category": "Fashion & Accessories",
+      "comments": "Get ready for hot summer deals!",
+      "location": ["United States", "Canada", "United Kingdom"],
+      "CTR": "2.5%",
+      "start_date": "2023-06-15",
+      "status": "completed",
+      "id": 2,
+      "request":"food"
+
+    },
+    {
+      "name": "Back to School Campaign",
+      "objective": "Promote educational products for the new school year",
+      "offer_type": "Free Shipping",
+      "category": "Education",
+      "comments": "Get everything you need for a successful school year!",
+      "location": ["United States", "Australia", "Germany"],
+      "CTR": "3.2%",
+      "start_date": "2023-08-01",
+      "status": "scheduled",
       "id":3,
-      "request":"Coffee",
-      "name":"Ramesh",
-      "status":"completed",
-      "CTR":"2.5%",
-      "start_date":"2023-07-22T12:34:56Z",
-      "objective":"Need Blood",
-      "category":"Category 1",
-      "offer_type":"Offer 2",
-      "location":["Bedra","karla"]
-
-
-
+      "request":"food"
     },
     {
-      "id":4,
-      "request":"Tesco",
-      "name":"Vikash",
-      "status":"scheduled",
-      "CTR":"2.5%",
-      "start_date":"2023-07-22T12:34:56Z",
-      "objective":"Need Blood",
-      "category":"Category 1",
-      "offer_type":"Offer 2",
-      "location":["Bedra","karla"]
-
-
-
+      "name": "Techtober Fest",
+      "objective": "Showcase latest tech products and attract tech enthusiasts",
+      "offer_type": "Buy One Get One (BOGO)",
+      "category": "Electronics",
+      "comments": "Experience the future with our cutting-edge gadgets!",
+      "location": ["United States", "India", "Japan"],
+      "CTR": "1.8%",
+      "start_date": "2023-10-01",
+      "status": "completed",
+      "id": 4,
+      "request":"food"
     },
     {
-      "id":5,
-      "request":"Food",
-      "name":"Dosen",
-      "status":"completed",
-      "CTR":"2.5%",
-      "start_date":"2023-07-22T12:34:56Z",
-      "objective":"Need Blood",
-      "category":"Category 1",
-      "offer_type":"Offer 2",
-      "location":["Bedra","karla"]
-
-
-
+      "name": "Winter Wonderland Sale",
+      "objective": "Boost sales and clear inventory for the upcoming winter collection",
+      "offer_type": "Clearance Sale",
+      "category": "Fashion & Accessories",
+      "comments": "Get cozy this winter with our amazing deals!",
+      "location": ["Canada", "United Kingdom", "France"],
+      "CTR": "1.0%",
+      "start_date": "2023-12-01",
+      "status": "scheduled",
+      "id": 5,
+      "request":"food"
     },
     {
-      "id":6,
-      "request":"Food",
-      "name":"Raina",
-      "status":"completed",
-      "CTR":"2.5%",
-      "start_date":"2023-07-22T12:34:56Z",
-      "objective":"Need Blood",
-      "category":"Category 1",
-      "offer_type":"Offer 2",
-      "location":["Bedra","karla"]
-
-
-
+      "name": "Fitness Frenzy",
+      "objective": "Promote fitness equipment and scheduledwear",
+      "offer_type": "Limited Time Offer",
+      "category": "Health & Fitness",
+      "comments": "Get fit and stay healthy with our exclusive deals!",
+      "location": ["United States", "Australia", "Brazil"],
+      "CTR": "4.5%",
+      "start_date": "2023-09-10",
+      "status": "draft",
+      "id": 6,
+      "request":"food"
     },
-    
     {
+      "name": "Home Makeover",
+      "objective": "Market home improvement products and decor",
+      "offer_type": "Discount",
+      "category": "Home & Garden",
+      "comments": "Redesign your living space with our stylish collection!",
+      "location": ["United States", "Germany", "China"],
+      "CTR": "2.1%",
+      "start_date": "2023-07-20",
+      "status": "completed",
       "id":7,
-      "request":"Food",
-      "name":"Bravo",
-      "status":"completed",
-      "CTR":"2.5%",
-      "start_date":"2023-07-22T12:34:56Z",
-      "objective":"Need Blood",
-      "category":"Category 1",
-      "offer_type":"Offer 2",
-      "location":["Bedra","karla"]
-
-
-
+      "request":"food"
+    },
+    {
+      "name": "Spring Cleaning Sale",
+      "objective": "Encourage customers to declutter and purchase organizational products",
+      "offer_type": "Buy One Get One Half Off",
+      "category": "Home & Garden",
+      "comments": "Tidy up and save big with our spring cleaning deals!",
+      "location": ["United States", "Canada", "France"],
+      "CTR": "1.9%",
+      "start_date": "2023-03-15",
+      "status": "draft",
+      "id": 8,
+      "request":"food"
+    },
+    {
+      "name": "Summer Adventures",
+      "objective": "Promote outdoor and travel-related products",
+      "offer_type": "Free Gift with Purchase",
+      "category": "Travel & Leisure",
+      "comments": "Embark on unforgettable journeys with our summer essentials!",
+      "location": ["United States", "Australia", "Italy"],
+      "CTR": "3.8%",
+      "start_date": "2023-05-01",
+      "status": "scheduled",
+      "id": 9,
+      "request":"food"
+    },
+    {
+      "name": "Gaming Extravaganza",
+      "objective": "Drive sales for gaming consoles and accessories",
+      "offer_type": "Bundle Deal",
+      "category": "Electronics",
+      "comments": "Level up your gaming experience with our unbeatable offers!",
+      "location": ["United States", "United Kingdom", "Japan"],
+      "CTR": "2.3%",
+      "start_date": "2023-11-05",
+      "status": "scheduled",
+      "id": 10,
+      "request":"food"
+    },
+    {
+      "name": "Holiday Cheers",
+      "objective": "Boost end-of-year sales and offer special holiday promotions",
+      "offer_type": "Gift Card Giveaway",
+      "category": "Seasonal",
+      "comments": "Spread the joy with our holiday-themed gifts and surprises!",
+      "location": ["United States", "Canada", "Germany"],
+      "CTR": "2.7%",
+      "start_date": "2023-11-25",
+      "status": "draft",
+      "id": 11,
+      "request":"food"
     }
   ]
 }

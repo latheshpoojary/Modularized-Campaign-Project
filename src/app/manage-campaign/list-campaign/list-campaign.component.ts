@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ApiService } from '../../shared/service/api.service';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { SHARED } from '../../shared/index';
+
 import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
@@ -17,7 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-list-campaign',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, SHARED, MatTableModule, MatSortModule, MatButtonModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatIconModule],
+  imports: [CommonModule, FormsModule, RouterLink,  MatTableModule, MatSortModule, MatButtonModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatIconModule],
   templateUrl: './list-campaign.component.html',
   styleUrls: ['./list-campaign.component.scss']
 })

@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import {SHARED} from './shared/index';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -26,7 +25,6 @@ import {ApiService} from './shared/service/api.service'
     AppRoutingModule,
     FormsModule,
     CommonModule,
-    SHARED,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,

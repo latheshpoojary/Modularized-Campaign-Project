@@ -16,15 +16,15 @@
         </tr>
         <tr>
           <td>Objective</td>
-          <td>{{ formData.objective || "Empty" }}</td>
+          <td>{{ formData.objective || "No Objective" }}</td>
         </tr>
         <tr>
           <td>Category</td>
-          <td>{{ formData.category || "Empty" }}</td>
+          <td>{{ formData.category || "No Category" }}</td>
         </tr>
         <tr>
           <td>Offer Type</td>
-          <td>{{ formData.offer_type || "Empty" }}</td>
+          <td>{{ formData.offer_type || "No Offer_type" }}</td>
         </tr>
         <tr>
           <td>Status</td>
@@ -48,16 +48,19 @@
           <td>{{ formData.CTR }}</td>
         </tr>
         <tr>
-          <td>Campaign Started Date</td>
+          <td>Started Date</td>
           <td>{{ formData.start_date | date : "dd MMMM, h:mm a(YYYY)" }}</td>
         </tr>
 
         <tr>
           <td>Location</td>
-          <td class="locations">
+          <td class="locations" *ngIf="formData.location.length>0">
             <span *ngFor="let location of formData.location" class="location">{{
               location
             }}</span>
+          </td>
+          <td *ngIf="formData.location.length==0">
+            Empty Location
           </td>
         </tr>
       </table>

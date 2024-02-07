@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
 import * as CampaignData from "../data/data.json";
 import {BehaviorSubject, from, of} from 'rxjs';
+import { campaign } from './campaign.model';
  
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  public editId :any;
+  public editId=null;
   // default form Value
   formData:any;
   //To store edit form Value
   editForm:any[]=[];
+
+  //deleted id
+  deleteId:number[] =[];
 
   // get the Json Data(temporary data)
   public campaignList:any[] = JSON.parse(JSON.stringify(CampaignData)).data;
@@ -29,11 +33,15 @@ export class ApiService {
     if(this.editId){
       const index = this.campaignList.findIndex((data) => data.id === this.editId);
       this.campaignList[index]= data;
-      this.editId='';
+      this.editId=null;
     }
     else{
+      console.log(data,"Data Parsed by summary");
+      
       this.campaignList.push(data);
     }
+    console.log("Campaign List",this.campaignList);
+    
     this.campaignForm.next(this.campaignList);
   }
 
@@ -74,4 +82,12 @@ export class ApiService {
       }
     }
   } 
+
+  deleteCampaign(id:number){
+    this.getCampaign().subscribe(res=>{
+      
+      const deleteIndex = res.indexOf(res.filter((res:any)=>res.id === id)[0]); //get the index of campaign from the list 
+      this.campaignList.splice(deleteIndex,1);//delete Campaign
+    })
+  }
 }

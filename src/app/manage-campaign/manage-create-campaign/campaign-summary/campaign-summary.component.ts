@@ -18,6 +18,13 @@ export class CampaignSummaryComponent implements OnInit {
 
   ngOnInit(): void {
     this.formData = this.api.getForm(); //get Form
+
+    
+    
+
+    if(this.api.deleteId){
+      this.formData.id =  this.api.deleteId.pop(); 
+    }
     this.formData.id =  this.formData.id = this.api.campaignList.length + 1; //create id
     this.formData.start_date = new Date(); //get Date
   }
@@ -29,7 +36,6 @@ export class CampaignSummaryComponent implements OnInit {
 
   // Add the form into Campaign List
   addCampaign() {
-    console.log(this.formData);
     this.api.setCampaignData(this.formData); //push form to the campaign List
 
   }

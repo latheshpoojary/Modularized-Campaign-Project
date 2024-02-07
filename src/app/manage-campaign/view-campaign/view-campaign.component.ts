@@ -15,7 +15,7 @@ export class ViewCampaignComponent implements OnInit{
   
     campaignDetails: any | null = null;
     campaignID: any | null = null;
-    id:any;
+    deleteId:any;
     toDelete=false;
     showEdit=false;
     constructor(private api: ApiService, private route: ActivatedRoute) {}  
@@ -40,15 +40,12 @@ export class ViewCampaignComponent implements OnInit{
       }
       //getting CampaignId for delete
       onDelete(id:any){
-        this.id = id;
+        this.deleteId = id;
         this.toDelete = true; //show Delete Pop Up
       }
       //delete the Campaign
       deleteConfirmed(){   
-        this.api.getCampaign().subscribe(res=>{
-          const deleteIndex = res.indexOf(res.filter((res:any)=>res.id === this.id)[0]); //get the index of campaign from the list 
-          res.splice(deleteIndex,1); //delete Campaign
-        })
+        this.api.deleteCampaign(this.deleteId);
       }
 }
 
