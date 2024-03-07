@@ -12,8 +12,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import {ApiService} from './shared/service/api.service'
+import { ApiService } from './shared/service/api.service';
+import { init,track } from '@amplitude/analytics-browser';
+init("f5cf1714690bc77bbb0994a0bde65c23", {
+  defaultTracking:true
+});
+
+
 @NgModule({
+
   declarations: [
     AppComponent,
     SidebarComponent,
@@ -30,10 +37,19 @@ import {ApiService} from './shared/service/api.service'
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    
+    
 
   ],
-  providers: [ApiService],
+  providers: [
+    ApiService,
+    {
+      provide: track,
+      useValue:track('ButtonClicked')
+    }
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
