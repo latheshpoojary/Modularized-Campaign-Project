@@ -1,9 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, OnInit, Output, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, FormsModule } from '@angular/forms';
 import { ApiService } from '../../../shared/service/api.service';
 import { MatButtonModule } from '@angular/material/button';
+import { track } from '@amplitude/analytics-browser';
 @Component({
   selector: 'app-campaign-summary',
   standalone: true,
@@ -14,7 +15,8 @@ import { MatButtonModule } from '@angular/material/button';
 export class CampaignSummaryComponent implements OnInit {
   public formData: any;
   @Output() formBack: EventEmitter<void> = new EventEmitter<void>();
-  constructor(private api: ApiService) { }
+  constructor(@Inject('track2') private track: any, private api: ApiService) {
+   }
 
   ngOnInit(): void {
     this.formData = this.api.getForm(); //get Form
@@ -36,6 +38,7 @@ export class CampaignSummaryComponent implements OnInit {
 
   // Add the form into Campaign List
   addCampaign() {
+    this.track('campaignFormSubmited');
     this.api.setCampaignData(this.formData); //push form to the campaign List
 
   }

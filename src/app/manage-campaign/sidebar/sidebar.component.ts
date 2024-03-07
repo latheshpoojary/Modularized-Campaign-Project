@@ -1,4 +1,3 @@
-import { track } from '@amplitude/analytics-browser';
 import { Component, Inject, inject } from '@angular/core';
 
 
@@ -9,13 +8,13 @@ import { Component, Inject, inject } from '@angular/core';
 })
 export class SidebarComponent {
 
-  constructor(@Inject(track) private track:any) {
+  constructor(@Inject('track1') private track:any) {
     
-     
+    console.log(this.track());
+    
   }
 
   callAnalytics() {
-    console.log(this.track());
   }
 
 }

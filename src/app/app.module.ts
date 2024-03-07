@@ -45,9 +45,14 @@ init("f5cf1714690bc77bbb0994a0bde65c23", {
   providers: [
     ApiService,
     {
-      provide: track,
+      provide: 'track1',
       useValue:track('ButtonClicked')
+    },
+    {
+      provide: 'track2',
+      useValue:track("formSubmit")
     }
+    
     
   ],
   bootstrap: [AppComponent]
