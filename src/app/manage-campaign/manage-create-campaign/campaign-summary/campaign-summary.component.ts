@@ -34,11 +34,11 @@ export class CampaignSummaryComponent implements OnInit {
   // back button pressed
   goBack() {
     this.formBack.emit();
+    this.track("goBackPressed");
   }
 
   // Add the form into Campaign List
   addCampaign() {
-    this.track('campaignFormSubmited');
     this.api.setCampaignData(this.formData); //push form to the campaign List
 
   }
